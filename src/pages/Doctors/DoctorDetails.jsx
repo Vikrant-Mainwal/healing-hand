@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import doctorImg from '../../assets/images/doctor-img02.png';
 import starIcon from '../../assets/images/Star.png';
+import DoctorAbout from './DoctorAbout';
+import Feedback from './Feedback';
+import SidePanel from './SidePanel';
 
 const DoctorDetails = () => {
 
@@ -36,12 +39,23 @@ const DoctorDetails = () => {
 
           </div>
           <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
-            <button onClick={()=>setTab('about')} className={` py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold `}>About</button>
-            <button className={` py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold `}>Feedback</button>
+            <button onClick={()=>setTab('about')} className={` ${tab === 'about' && 'border-b border-solid border-cyan-950 '} py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold `}>About</button>
+            <button onClick={()=>setTab('feedback')} className={` ${tab === 'feedback' && 'border-b border-solid border-cyan-950 '}  py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold `}>Feedback</button>
+          </div>
+
+          <div className="mt-[50px] ">
+            {
+              tab === 'about' && <DoctorAbout/>
+            }
+            {
+              tab === 'feedback' && <Feedback/>
+            }
           </div>
         </div>
 
-          <div></div>
+          <div>
+            <SidePanel/>
+          </div>
 
         </div>
       </div>
